@@ -1,0 +1,206 @@
+body {
+  background-color: #1c1f26;
+  color: #f0f0f0;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+body.light-theme {
+  background-color: #e6ebf1;
+  color: #1c1f26;
+}
+
+#themeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background-color 0.3s, transform 0.2s;
+}
+#themeToggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+body.light-theme #themeToggle {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+body.light-theme #themeToggle:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.main-section {
+  background-color: #2a2e3a;
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+  border-radius: 20px;
+  padding: 30px;
+  transition: background-color 0.3s;
+}
+body.light-theme .main-section {
+  background-color: #f2f5f9;
+}
+.main-section .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.main-section .title h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+.main-section .middle-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.main-section .middle-box #citySelect,
+.main-section .middle-box #getForecastBtn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.main-section .middle-box #citySelect {
+  background-color: #f0f0f0;
+  color: #1c1f26;
+}
+body.light-theme .main-section .middle-box #citySelect {
+  background-color: #ffffff;
+  color: #1c1f26;
+}
+.main-section .middle-box #getForecastBtn {
+  background-color: #4db6ac;
+  color: white;
+  transition: background-color 0.3s;
+}
+.main-section .middle-box #getForecastBtn:hover {
+  background-color: #399b92;
+}
+.main-section #forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.main-section #forecast .city-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: inherit;
+}
+.main-section #forecast .forecast-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+.main-section #forecast .day {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  width: 220px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.main-section #forecast .day img {
+  width: 80px;
+  height: 80px;
+}
+.main-section #forecast .day h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.main-section #forecast .day p {
+  margin: 0.3rem 0;
+}
+.main-section #forecast .day:hover {
+  transform: scale(1.05);
+}
+body.light-theme .main-section #forecast .day {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.main-section #forecast .error-message {
+  color: red;
+  font-weight: 500;
+}
+.main-section #forecast .info-message {
+  color: orange;
+  font-weight: 500;
+}
+.main-section #forecast .loading-message {
+  color: #aaa;
+  font-style: italic;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+.loader .spinner {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #4db6ac;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+body.light-theme .loader .spinner {
+  border-color: rgba(0, 0, 0, 0.1);
+  border-top-color: #4db6ac;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 600px) {
+  .main-section {
+    padding: 20px;
+  }
+  .main-section .title h1 {
+    font-size: 1.5rem;
+  }
+  .main-section .middle-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .main-section .middle-box #citySelect,
+  .main-section .middle-box #getForecastBtn {
+    width: 100%;
+  }
+  .main-section #forecast .day {
+    width: 100%;
+    max-width: 300px;
+  }
+  #themeToggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}/*# sourceMappingURL=style.css.map */
