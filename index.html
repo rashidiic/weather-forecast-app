@@ -2,55 +2,53 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rashidik's Weather App</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4814/4814576.png">
-    <link rel="stylesheet" href="vendors/bootstrap-5.3.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rashidik's Weather App</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4814/4814576.png">
+  <link rel="stylesheet" href="vendors/bootstrap-5.3.3-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <button id="themeToggle">🌙</button>
+  <button id="themeToggle">🌙</button>
 
-    <section class="main-section">
-        <div class="title">
-            <h1>5-Day Weather Forecast</h1>
-        </div>
+  <section class="main-section">
+    <div class="title">
+      <h1>5-Day Weather Forecast</h1>
+    </div>
 
-        <div class="middle-box">
-            <select id="citySelect">
-                <option value="Baku">Baku</option>
-                <option value="Ganja">Ganja</option>
-                <option value="Sumqayit">Sumqayit</option>
-                <option value="Mingachevir">Mingachevir</option>
-                <option value="Lankaran">Lankaran</option>
-                <option value="Shaki">Shaki</option>
-                <option value="Nakhchivan">Nakhchivan</option>
-                <option value="Shirvan">Shirvan</option>
-                <option value="Yevlakh">Yevlakh</option>
-                <option value="Khirdalan">Khirdalan</option>
-                <option value="Salyan">Salyan</option>
-                <option value="Quba">Quba</option>
-                <option value="Qusar">Qusar</option>
-                <option value="Zaqatala">Zaqatala</option>
-                <option value="Goychay">Goychay</option>
-                <option value="Zagatala">Zagatala</option>
-                <option value="Agjabadi">Agjabadi</option>
-                <option value="Sabirabad">Sabirabad</option>
-                <option value="Barda">Barda</option>
-                <option value="Astara">Astara</option>
-            </select>
+    <div class="middle-box">
+      <select id="citySelect">
+        <option value="Baku">Baku</option>
+        <option value="Ganja">Ganja</option>
+        <option value="Sumqayit">Sumqayit</option>
+        <option value="Mingachevir">Mingachevir</option>
+        <option value="Lankaran">Lankaran</option>
+        <option value="Shaki">Shaki</option>
+        <option value="Nakhchivan">Nakhchivan</option>
+        <option value="Shirvan">Shirvan</option>
+        <option value="Yevlakh">Yevlakh</option>
+        <option value="Khirdalan">Khirdalan</option>
+        <option value="Salyan">Salyan</option>
+        <option value="Quba">Quba</option>
+        <option value="Qusar">Qusar</option>
+        <option value="Zaqatala">Zaqatala</option>
+        <option value="Goychay">Goychay</option>
+        <option value="Zagatala">Zagatala</option>
+        <option value="Agjabadi">Agjabadi</option>
+        <option value="Sabirabad">Sabirabad</option>
+        <option value="Barda">Barda</option>
+        <option value="Astara">Astara</option>
+      </select>
+      <button id="getForecastBtn">Show Forecast</button>
+    </div>
 
+    <div id="forecast"></div>
+  </section>
 
-            <button id="getForecastBtn">Show Forecast</button>
-        </div>
-
-        <div id="forecast"></div>
-    </section>
-
-    <script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

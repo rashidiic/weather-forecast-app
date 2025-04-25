@@ -2,15 +2,36 @@ body {
     background-color: #1c1f26;
     color: #f0f0f0;
     font-family: "Inter", sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-  
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+
     &.light-theme {
-      background-color: #e6ebf1;
-      color: #1c1f26;
+        background-color: #e6ebf1;
+        color: #1c1f26;
     }
-  }
-  
-  #themeToggle {
+
+    .lock-scroll {
+        overflow: hidden;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+body.light-theme .fullscreen-forecast {
+    color: #1c1f26;
+
+    .fullscreen-content {
+        background-color: #f2f5f9;
+    }
+
+    .close-btn {
+        color: #1c1f26;
+    }
+}
+
+
+#themeToggle {
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -26,23 +47,25 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: background-color 0.3s, transform 0.2s;
-  
+    transition:
+        background-color 0.3s,
+        transform 0.2s;
+
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
     }
-  
+
     body.light-theme & {
-      background-color: rgba(0, 0, 0, 0.07);
-  
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.15);
-      }
+        background-color: rgba(0, 0, 0, 0.07);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.15);
+        }
     }
-  }
-  
-  .main-section {
+}
+
+.main-section {
     background-color: #2a2e3a;
     width: 90%;
     max-width: 1000px;
@@ -50,191 +73,271 @@ body {
     border-radius: 20px;
     padding: 30px;
     transition: background-color 0.3s;
-  
+
     body.light-theme & {
-      background-color: #f2f5f9;
+        background-color: #f2f5f9;
     }
-  
+
     .title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1.5rem;
-  
-      h1 {
-        font-size: 2rem;
-        font-weight: 600;
-        text-align: center;
-      }
-    }
-  
-    .middle-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-  
-      #citySelect,
-      #getForecastBtn {
-        padding: 10px 15px;
-        border: none;
-        border-radius: 10px;
-        font-size: 1rem;
-      }
-  
-      #citySelect {
-        background-color: #f0f0f0;
-        color: #1c1f26;
-      }
-  
-      body.light-theme & #citySelect {
-        background-color: #ffffff;
-        color: #1c1f26;
-      }
-  
-      #getForecastBtn {
-        background-color: #4db6ac;
-        color: white;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: #399b92;
-        }
-      }
-    }
-  
-    #forecast {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-  
-      .city-name {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        text-align: center;
-        color: inherit;
-      }
-  
-      .forecast-wrapper {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem;
-        width: 100%;
-      }
-  
-      .day {
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 1.5rem;
-        border-radius: 20px;
-        text-align: center;
-        width: 220px;
-        transition: transform 0.3s, background-color 0.3s;
-  
-        img {
-          width: 80px;
-          height: 80px;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
         }
-  
-        h4 {
-          font-size: 1.1rem;
-          margin-bottom: 0.5rem;
-        }
-  
-        p {
-          margin: 0.3rem 0;
-        }
-  
-        &:hover {
-          transform: scale(1.05);
-        }
-  
-        body.light-theme & {
-          background-color: rgba(0, 0, 0, 0.05);
-        }
-      }
-  
-      .error-message {
-        color: red;
-        font-weight: 500;
-      }
-  
-      .info-message {
-        color: orange;
-        font-weight: 500;
-      }
-  
-      .loading-message {
-        color: #aaa;
-        font-style: italic;
-      }
     }
-  }
-  
-  .loader {
+
+    .middle-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+
+        #citySelect,
+        #getForecastBtn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        #citySelect {
+            background-color: #f0f0f0;
+            color: #1c1f26;
+        }
+
+        body.light-theme & #citySelect {
+            background-color: #ffffff;
+            color: #1c1f26;
+        }
+
+        #getForecastBtn {
+            background-color: #4db6ac;
+            color: white;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #399b92;
+            }
+        }
+    }
+
+    #forecast {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        .city-name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: inherit;
+        }
+
+        .forecast-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .day {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            width: 220px;
+            transition:
+                transform 0.3s,
+                background-color 0.3s;
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+
+            h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                margin: 0.3rem 0;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            body.light-theme & {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        .error-message {
+            color: red;
+            font-weight: 500;
+        }
+
+        .info-message {
+            color: orange;
+            font-weight: 500;
+        }
+
+        .loading-message {
+            color: #aaa;
+            font-style: italic;
+        }
+    }
+}
+
+.fullscreen-forecast {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: #fff;
+
+    .fullscreen-content {
+        background-color: #2a2e3a;
+        padding: 3rem;
+        border-radius: 1rem;
+        max-width: 600px;
+        width: 25% !important;
+        position: relative;
+        text-align: center;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.loader {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 150px;
-  
+
     .spinner {
-      border: 6px solid rgba(255, 255, 255, 0.2);
-      border-top: 6px solid #4db6ac;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
+        border: 6px solid rgba(255, 255, 255, 0.2);
+        border-top: 6px solid #4db6ac;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
     }
-  
+
     body.light-theme & .spinner {
-      border-color: rgba(0, 0, 0, 0.1);
-      border-top-color: #4db6ac;
+        border-color: rgba(0, 0, 0, 0.1);
+        border-top-color: #4db6ac;
     }
-  }
+}
+
+// .fullscreen-forecast.show {
+//     animation: fadeIn 0.3s ease forwards;
+//   }
   
-  @keyframes spin {
+//   @keyframes fadeIn {
+//     from {
+//       opacity: 0;
+//       transform: scale(0.96);
+//     }
+//     to {
+//       opacity: 1;
+//       transform: scale(1);
+//     }
+//   }
+
+.fullscreen-forecast {
+    animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+  
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
-  @media (max-width: 600px) {
+}
+
+@media (max-width: 600px) {
     .main-section {
-      padding: 20px;
-  
-      .title h1 {
-        font-size: 1.5rem;
-      }
-  
-      .middle-box {
-        flex-direction: column;
-        align-items: stretch;
-  
-        #citySelect,
-        #getForecastBtn {
-          width: 100%;
+        padding: 20px;
+
+        .title h1 {
+            font-size: 1.5rem;
         }
-      }
-  
-      #forecast .day {
-        width: 100%;
-        max-width: 300px;
-      }
+
+        .middle-box {
+            flex-direction: column;
+            align-items: stretch;
+
+            #citySelect,
+            #getForecastBtn {
+                width: 100%;
+            }
+        }
+
+        #forecast .day {
+            width: 100%;
+            max-width: 300px;
+        }
     }
-  
+
+    .fullscreen-forecast {
+        .fullscreen-content {
+            background-color: #2a2e3a;
+            padding: 3rem;
+            border-radius: 1rem;
+            max-width: 600px;
+            width: 80% !important;
+            position: relative;
+            text-align: center;
+        }
+    }
+
     #themeToggle {
-      top: 0.5rem;
-      right: 0.5rem;
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
-  }
-  
+}

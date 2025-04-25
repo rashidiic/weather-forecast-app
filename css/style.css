@@ -8,6 +8,21 @@ body.light-theme {
   background-color: #e6ebf1;
   color: #1c1f26;
 }
+body .lock-scroll {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+}
+
+body.light-theme .fullscreen-forecast {
+  color: #1c1f26;
+}
+body.light-theme .fullscreen-forecast .fullscreen-content {
+  background-color: #f2f5f9;
+}
+body.light-theme .fullscreen-forecast .close-btn {
+  color: #1c1f26;
+}
 
 #themeToggle {
   position: fixed;
@@ -150,6 +165,39 @@ body.light-theme .main-section #forecast .day {
   font-style: italic;
 }
 
+.fullscreen-forecast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: #fff;
+}
+.fullscreen-forecast .fullscreen-content {
+  background-color: #2a2e3a;
+  padding: 3rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 25% !important;
+  position: relative;
+  text-align: center;
+}
+.fullscreen-forecast .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
 .loader {
   display: flex;
   justify-content: center;
@@ -169,6 +217,20 @@ body.light-theme .loader .spinner {
   border-top-color: #4db6ac;
 }
 
+.fullscreen-forecast {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -195,6 +257,15 @@ body.light-theme .loader .spinner {
   .main-section #forecast .day {
     width: 100%;
     max-width: 300px;
+  }
+  .fullscreen-forecast .fullscreen-content {
+    background-color: #2a2e3a;
+    padding: 3rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    width: 80% !important;
+    position: relative;
+    text-align: center;
   }
   #themeToggle {
     top: 0.5rem;
