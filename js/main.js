@@ -4,7 +4,7 @@ const citySelect = document.getElementById('citySelect');
 const button = document.getElementById('getForecastBtn');
 const forecastContainer = document.getElementById('forecast');
 const themeToggle = document.getElementById('themeToggle');
-// const body = document.getElementById('body');
+const mainSection = document.getElementById('main-section');
 
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-theme');
@@ -81,7 +81,7 @@ function displayForecast(days, cityName) {
     cityHeader.classList.add('city-name');
     forecastContainer.appendChild(cityHeader);
 
-    const forecastWrapper = document.createElement('div'); // теперь это глобально
+    const forecastWrapper = document.createElement('div');
     forecastWrapper.className = "forecast-wrapper";
     forecastWrapper.style.display = 'flex';
     forecastWrapper.style.flexWrap = 'wrap';
@@ -104,14 +104,13 @@ function displayForecast(days, cityName) {
         `;
 
         dayDiv.addEventListener("click", function () {
-            openFullScreenForecast(day); 
+            openFullScreenForecast(day);
         });
 
         forecastWrapper.appendChild(dayDiv);
     });
 
     forecastContainer.appendChild(forecastWrapper);
-
 }
 
 function openFullScreenForecast(day) {
@@ -132,13 +131,13 @@ function openFullScreenForecast(day) {
     `;
 
     document.body.appendChild(fullscreenDiv);
-
+    lockBodyScroll();
 
     fullscreenDiv.querySelector('.close-btn').addEventListener('click', () => {
         fullscreenDiv.remove();
+        unlockBodyScroll();
     });
 }
-
 
 function showModal(content) {
     const modal = document.createElement('div');
@@ -152,14 +151,30 @@ function showModal(content) {
     `;
 
     document.body.appendChild(modal);
-    document.body.classList.add('lock-scroll');
+    lockBodyScroll();
 
     modal.querySelector('.close-btn').addEventListener('click', () => {
         modal.remove();
-        document.body.classList.remove('lock-scroll');
+        unlockBodyScroll();
     });
+}
 
-    function aye() {
-        console.log("AYE JUZN VORAM!!!");
-    }
+function lockBodyScroll() {
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.overflow = 'hidden';
+    document.body.dataset.scrollY = scrollY;
+}
+
+function unlockBodyScroll() {
+    const scrollY = document.body.dataset.scrollY;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, parseInt(scrollY || '0'));
 }

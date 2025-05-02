@@ -62,6 +62,11 @@ body.light-theme #themeToggle:hover {
   padding: 30px;
   transition: background-color 0.3s;
 }
+.main-section .lock-scroll {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+}
 body.light-theme .main-section {
   background-color: #f2f5f9;
 }

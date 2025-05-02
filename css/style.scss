@@ -74,6 +74,12 @@ body.light-theme .fullscreen-forecast {
     padding: 30px;
     transition: background-color 0.3s;
 
+    .lock-scroll {
+        overflow: hidden;
+        height: 100vh;
+        width: 100%;
+    }
+
     body.light-theme & {
         background-color: #f2f5f9;
     }
@@ -255,21 +261,6 @@ body.light-theme .fullscreen-forecast {
         border-top-color: #4db6ac;
     }
 }
-
-// .fullscreen-forecast.show {
-//     animation: fadeIn 0.3s ease forwards;
-//   }
-  
-//   @keyframes fadeIn {
-//     from {
-//       opacity: 0;
-//       transform: scale(0.96);
-//     }
-//     to {
-//       opacity: 1;
-//       transform: scale(1);
-//     }
-//   }
 
 .fullscreen-forecast {
     animation: fadeIn 0.2s ease forwards;
