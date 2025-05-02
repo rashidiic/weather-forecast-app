@@ -158,4 +158,8 @@ function showModal(content) {
         modal.remove();
         document.body.classList.remove('lock-scroll');
     });
+
+    function aye() {
+        console.log("AYE JUZN VORAM!!!");
+    }
 }
